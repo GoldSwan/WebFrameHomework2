@@ -18,9 +18,9 @@
 		<!-- offer컨트롤러에서 넘겨준 키값 offers -->
 			<tr>
 				<td class="label">${splitCourseBySemester.years}</td>
-				<td>${splitCourseBySemester.semester}</td>
-				<td>${splitCourseBySemester.totalGrades}</td>
-				<td><a href="${pageContext.request.contextPath}/detailcourse?years=${splitCourseBySemester.years} 
+				<td class="label">${splitCourseBySemester.semester}</td>
+				<td class="label">${splitCourseBySemester.totalGrades}</td>
+				<td class="label"><a href="${pageContext.request.contextPath}/detailcourse?years=${splitCourseBySemester.years} 
 				&semester=${splitCourseBySemester.semester}">링크</a></td>
 				<br>
 			</tr>

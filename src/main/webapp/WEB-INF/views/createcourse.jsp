@@ -27,7 +27,7 @@
 				<sf:errors path="coursename" class="error"/></td></tr>
 			<tr><td class="label">구분:</td><td><sf:input class="control" type="text" path="division"/><br>
 				<sf:errors path="division" class="error"/></td></tr>
-			<tr><td class="label">학점:</td><td><sf:input class="control" type="text" path="grades" value=""/><br>
+			<tr><td class="label">학점:</td><td><sf:input class="control" type="text" path="grades" value="3"/><br>
 				<sf:errors path="grades" class="error"/></td></tr>	
 			<tr><td class="label"></td><td><input class="control" type="submit" value="수강 신청"></td></tr>
 		</table>

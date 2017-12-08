@@ -6,17 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/main.css">
 </head>
 <body>
-상세 
-	<c:forEach var="detailCourse" items="${detailCourses}">
-		<!-- offer컨트롤러에서 넘겨준 키값 offers -->
-		<p>
-			<c:out value="${detailCourse}"></c:out>
-		</p>
-		
-	</c:forEach>
-	
+상세 교과목 리스트
 	<table class="formtable" border="1">
 	<tr><td>수강년도</td><td>학기</td><td>교과코드</td><td>교과목명</td><td>구분</td><td>학점</td><br></tr>
 	<c:forEach var="detailCourse"
@@ -24,11 +18,12 @@
 		<!-- offer컨트롤러에서 넘겨준 키값 offers -->
 			<tr>
 				<td class="label">${detailCourse.years}</td>
-				<td>${splitCourseBySemester.semester}</td>
-				<td>${splitCourseBySemester.totalGrades}</td>
-				<td><a href="${pageContext.request.contextPath}/detailcourse?years=${splitCourseBySemester.years} 
-				&semester=${splitCourseBySemester.semester}">링크</a></td>
-				<br>
+				<td class="label">${detailCourse.semester}</td>
+				<td class="label">${detailCourse.coursecode}</td>
+				<td class="label">${detailCourse.coursename}</td>
+				<td class="label">${detailCourse.division}</td>
+				<td class="label">${detailCourse.grades}</td>
+			<br>
 			</tr>
 	</c:forEach>
 	</table>
