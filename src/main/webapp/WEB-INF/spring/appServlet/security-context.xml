@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security
+	 http://www.springframework.org/schema/security/spring-security-4.2.xsd
+	 http://www.springframework.org/schema/beans 
+	 http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<security:authentication-manager>
+<!-- 		<security:authentication-provider>메모리 관련
+			<security:user-service>
+				<security:user name="nykim" authorities="ROLE_USER" password="letmein" />
+			</security:user-service>
+		</security:authentication-provider> -->
+		
+		<security:authentication-provider><!-- DB 관련 -->
+			<security:jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select username, password, enabled from users where username=?"
+				authorities-by-username-query="select username, authority from authorities where username=? " />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<security:http auto-config="true" use-expressions="true">
+		<security:intercept-url pattern="/" access="isAuthenticated()" />
+		<security:intercept-url pattern="/login" access="permitAll" />
+		<security:intercept-url pattern="/logout" access="permitAll" />
+		<security:intercept-url pattern="/divisioncourse" access="permitAll" />
+		<security:intercept-url pattern="/detailcourse" access="isAuthenticated()" />
+		<security:intercept-url pattern="/courses" access="isAuthenticated()" /><!-- 인증만 받으면 OK -->
+		<security:intercept-url pattern="/createcourse" access="permitAll" />
+		<security:intercept-url pattern="/coursereated" access="permitAll" />
+		<security:intercept-url pattern="/newcourses" access="permitAll" />
+		<security:intercept-url pattern="/docreate" access="permitAll" />
+		<security:intercept-url pattern="/resources/**" access="permitAll" /><!-- main.css 허가 -->
+		<security:intercept-url pattern="/**" access="denyAll" />
+		<security:form-login login-page="/login" />
+		<security:logout />
+	</security:http>
+</beans>
