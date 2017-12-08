@@ -10,7 +10,7 @@
 	href="${pageContext.request.contextPath}/resources/css/main.css">
 </head>
 <body>
-	이수 구분별 학점 조회
+	<h2>이수 구분별 학점 조회</h2>
 
 	<table class="formtable" border="1">
 		<tr>

@@ -12,7 +12,7 @@
 	href="${pageContext.request.contextPath}/resources/css/main.css">
 </head>
 <body>
-수강신청
+<h2>수강신청</h2>
 	<sf:form method="post"
 		action="${pageContext.request.contextPath}/docreate" modelAttribute="course">
 

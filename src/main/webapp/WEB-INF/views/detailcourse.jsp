@@ -10,7 +10,7 @@
 	href="${pageContext.request.contextPath}/resources/css/main.css">
 </head>
 <body>
-상세 교과목 리스트
+<h2>상세 교과목 리스트</h2>
 	<table class="formtable" border="1">
 	<tr><td>수강년도</td><td>학기</td><td>교과코드</td><td>교과목명</td><td>구분</td><td>학점</td><br></tr>
 	<c:forEach var="detailCourse"
